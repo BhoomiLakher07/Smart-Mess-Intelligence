@@ -47,3 +47,17 @@ Database credentials and environment files should never be committed to GitHub.
 ## Project Status
 
 Core dashboard, analytics, database connectivity, and Excel import/export functionality implemented and tested.
+
+## Dashboard Screenshots
+
+### 1. Dashboard Overview
+
+![Dashboard Overview](screenshots/dashboard-top.png)
+
+### 2. Expense Analytics
+
+![Expense Analytics](screenshots/expense-charts.png)
+
+### 3. Student Expenses
+
+![Student Expenses](screenshots/student-expenses.png)
