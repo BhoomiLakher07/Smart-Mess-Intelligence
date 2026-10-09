@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Mess & Expense Intelligence</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div>
+            <h1>Smart Mess & Expense Intelligence</h1>
+            <p>Smart expense tracking and budget analytics</p>
+        </div>
+
+        <div class="status">
+            <span></span>
+            API Connected
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- SUMMARY CARDS -->
+        <section class="cards">
+
+            <div class="card">
+                <h3>Total Students</h3>
+                <p id="totalStudents">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Budget</h3>
+                <p id="totalBudget">₹0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Expense</h3>
+                <p id="totalExpense">₹0</p>
+            </div>
+
+            <div class="card">
+                <h3>Remaining Budget</h3>
+                <p id="remainingBudget">₹0</p>
+            </div>
+
+            <div class="card">
+                <h3>Budget Used</h3>
+                <p id="budgetUtilization">0%</p>
+            </div>
+
+        </section>
+
+        <!-- BUDGET INTELLIGENCE -->
+        <section class="panel intelligence-panel">
+            <h2>Budget Intelligence</h2>
+
+            <div class="insights" id="insights">
+
+                <div class="insight">
+                    <span class="insight-title">Overall Budget Utilization</span>
+                    <strong id="overallUtilization">0%</strong>
+                </div>
+
+                <div class="insight">
+                    <span class="insight-title">Highest Spender</span>
+                    <strong id="highestSpender">Loading...</strong>
+                </div>
+
+                <div class="insight">
+                    <span class="insight-title">Students Near Budget Limit</span>
+                    <strong id="nearLimitStudents">0</strong>
+                </div>
+
+                <div class="insight">
+                    <span class="insight-title">Budget Status</span>
+                    <strong id="budgetStatus">Checking...</strong>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EXCEL IMPORT & EXPORT -->
+        <section class="panel excel-panel">
+
+            <div class="excel-heading">
+                <div>
+                    <h2>Excel Data Management</h2>
+                    <p>Import expense records or export existing data.</p>
+                </div>
+            </div>
+
+            <form id="importForm" class="import-form">
+
+                <div class="file-field">
+                    <label for="excelFile">Choose Excel File (.xlsx)</label>
+                    <input
+                        type="file"
+                        id="excelFile"
+                        name="file"
+                        accept=".xlsx,.xls"
+                        required
+                    >
+                </div>
+
+                <div class="excel-actions">
+                    <button type="submit" id="importButton">
+                        Import Excel
+                    </button>
+
+                    <button type="button" id="exportButton">
+                        Export Expenses
+                    </button>
+                </div>
+
+            </form>
+
+            <p
+                id="importStatus"
+                class="import-status"
+                role="status"
+                aria-live="polite"
+            ></p>
+
+            <p class="excel-note">
+                Required Excel columns: student_id, category, amount, expense_date.
+                Optional columns: item, description.
+                If item is omitted, it will default to the category.
+            </p>
+
+        </section>
+
+        <!-- DASHBOARD -->
+        <section class="dashboard-grid">
+
+            <!-- STUDENT TABLE -->
+            <div class="panel">
+                <h2>Student Expense Overview</h2>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Budget</th>
+                                <th>Expense</th>
+                                <th>Remaining</th>
+                                <th>Used</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="studentTable">
+                            <tr>
+                                <td colspan="6">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- STUDENT EXPENSE CHART -->
+            <div class="panel chart-panel">
+                <h2>Expense by Student</h2>
+                <canvas id="expenseChart"></canvas>
+            </div>
+
+            <!-- CATEGORY EXPENSE CHART -->
+            <div class="panel chart-panel">
+                <h2>Expense by Category</h2>
+                <canvas id="categoryChart"></canvas>
+            </div>
+
+            <!-- DAILY EXPENSE TREND -->
+            <div class="panel chart-panel">
+                <h2>Daily Expense Trend</h2>
+                <canvas id="dailyExpenseChart"></canvas>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        Smart Mess & Expense Intelligence Platform
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
